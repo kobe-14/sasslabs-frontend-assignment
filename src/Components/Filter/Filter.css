@@ -1,0 +1,22 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.filter {
+  width: 48%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.export-button {
+  padding: 10px;
+  background-color: #007bff;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
