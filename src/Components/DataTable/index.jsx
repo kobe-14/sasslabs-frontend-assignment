@@ -10,7 +10,7 @@ import "./DataTable.css";
 const RECORDS_PER_PAGE = 5;
 
 const DataTable = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
@@ -23,17 +23,17 @@ const DataTable = () => {
   }, []);
 
   const fetchData = () => {
-    // setIsLoading(true);
+    setIsLoading(true);
     fetch(
       "https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
     )
       .then((response) => response.json())
       .then((data) => {
         setData(data || []);
-        // setIsLoading(false);
+        setIsLoading(false);
       })
       .catch((error) => {
-        // setIsLoading(false);
+        setIsLoading(false);
         console.error("Error fetching data:", error);
       });
   };
@@ -110,10 +110,11 @@ const DataTable = () => {
       <div className="query">
         <input
           type="text"
-          placeholder="Search by Percentage or Amount or Currency"
+          placeholder="Search by Percentage or Amoun or by currency"
           className="search-bar"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
+          aria-label="Search projects by percentage funded or amount pledged"
         />
       </div>
       <Filter

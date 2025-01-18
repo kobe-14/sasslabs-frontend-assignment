@@ -14,10 +14,24 @@ const Table = ({ data, onSort = () => {}, sortConfig }) => {
       <thead>
         <tr>
           <th>S.No.</th>
-          <th onClick={() => onSort("percentage.funded")}>
+          <th
+            scope="col"
+            onClick={() => onSort("percentage.funded")}
+            aria-sort={
+              sortConfig.key === "percentage.funded"
+                ? sortConfig.direction
+                : "none"
+            }
+          >
             Percentage Funded {getSortIndicator("percentage.funded")}
           </th>
-          <th onClick={() => onSort("amt.pledged")}>
+          <th
+            scope="col"
+            onClick={() => onSort("amt.pledged")}
+            aria-sort={
+              sortConfig.key === "amt.pledged" ? sortConfig.direction : "none"
+            }
+          >
             Amount Pledged {getSortIndicator("amt.pledged")}
           </th>
         </tr>

@@ -37,6 +37,7 @@ const Filter = ({
           label="Export"
           onClick={handleExport}
           className="export-button"
+          aria-label="Export filtered data as a CSV file"
         />
       </div>
     </>

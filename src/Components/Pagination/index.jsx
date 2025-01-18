@@ -15,6 +15,7 @@ const Pagination = ({
         label="Previous"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1 || data.length === 0}
+        aria-label="Click here to move to previous page"
       />
       {data.length !== 0 && (
         <span>
@@ -25,6 +26,7 @@ const Pagination = ({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages || data.length === 0}
         label="Next"
+        aria-label="Click here to move to next page"
       />
     </div>
   );
